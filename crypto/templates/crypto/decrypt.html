@@ -1,0 +1,27 @@
+{% extends 'crypto/base.html' %}
+{% block title %}WRX-Encryptor - Decrypt Text{% endblock %}
+
+{% block content %}
+<section id="decrypt" class="decrypt section text-center d-flex align-items-center justify-content-center vh-100">
+  <div class="container" data-aos="fade-up">
+    <h2>Decrypt Your Encrypted Text</h2>
+    <p>Paste your encrypted text below to reveal the original message.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form method="post" class="form-group">
+          {% csrf_token %}
+          <textarea name="text" class="form-control" rows="4" placeholder="Enter encrypted text..."></textarea><br>
+          <input type="text" name="key" class="form-control" placeholder="Enter encryption key..." required><br>
+          <button type="submit" class="btn btn-success">Decrypt</button>
+        </form>
+        {% if decrypted_message %}
+          <div class="alert alert-info mt-3">
+            <strong>Decrypted Text:</strong>
+            <p class="text-break">{{ decrypted_message }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

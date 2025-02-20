@@ -1,0 +1,28 @@
+{% extends 'crypto/base.html' %}
+{% block title %}WRX-Encryptor - Encrypt Text{% endblock %}
+
+{% block content %}
+<section id="encrypt" class="encrypt section text-center d-flex align-items-center justify-content-center vh-100">
+  <div class="container" data-aos="fade-up">
+    <h2>Encrypt Your Text Securely</h2>
+    <p>Use our advanced encryption tool to protect your messages.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form method="post" class="form-group">
+          {% csrf_token %}
+          <textarea name="text" class="form-control" rows="4" placeholder="Enter text to encrypt..." required></textarea><br>
+          <button type="submit" class="btn btn-primary">Encrypt</button>
+        </form>
+        {% if encrypted_message %}
+          <div class="alert alert-success mt-3">
+            <strong>Encrypted Text:</strong>
+            <p class="text-break">{{ encrypted_message }}</p>
+            <strong>Encryption Key:</strong>
+            <p class="text-break">{{ encryption_key }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

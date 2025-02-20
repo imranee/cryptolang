@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %}WRX-Encryptor - Secure Text Encryption & Decryption{% endblock %}</title>
+
+  <!-- Favicons -->
+  <link href="{% static 'crypto/assets/img/favicon.ico' %}" rel="icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'crypto/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'crypto/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'crypto/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'crypto/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'crypto/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'crypto/assets/css/main.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header id="header" class="header fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="{% url 'home' %}" class="logo">
+        <h1>WRX-Encryptor</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'encrypt' %}">Encrypt</a></li>
+          <li><a href="{% url 'decrypt' %}">Decrypt</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container text-center">
+      <p>© WRX-Encryptor | Secure Your Messages with Advanced Encryption</p>
+      <p>Developed to provide top-notch security and privacy for your sensitive information.</p>
+    </div>
+  </footer>
+  
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'crypto/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'crypto/assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'crypto/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'crypto/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'crypto/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
